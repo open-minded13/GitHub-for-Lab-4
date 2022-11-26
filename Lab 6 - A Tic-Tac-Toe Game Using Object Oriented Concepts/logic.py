@@ -1,6 +1,8 @@
 # This file is where game logic lives. No input
 # or output happens here. The logic in this file
 # should be unit-testable.
+import random
+
 
 class Board:
 
@@ -31,60 +33,82 @@ class Board:
         self.rows[x][y] = value
         self.empty = False
 
-    def get_winner(self):
+
+class Game:
+
+    def get_next_turn(self, current_player):
+        if current_player == 'O':
+            return 'X'
+        else:
+            return 'O'
+
+    def get_winner(self, board):
         """Determines the winner of the given board. Returns 'X', 'O', or None."""
 
-        if self.rows[0][0] == self.rows[0][1] == self.rows[0][2]:
-            if self.rows[0][0] == 'O' or self.rows[0][0] == 'X':
-                return self.rows[0][0]
+        if board.rows[0][0] == board.rows[0][1] == board.rows[0][2]:
+            if board.rows[0][0] == 'O' or board.rows[0][0] == 'X':
+                return board.rows[0][0]
             else:
                 return None
-        elif self.rows[1][0] == self.rows[1][1] == self.rows[1][2]:
-            if self.rows[1][0] == 'O' or self.rows[1][0] == 'X':
-                return self.rows[1][0]
+        elif board.rows[1][0] == board.rows[1][1] == board.rows[1][2]:
+            if board.rows[1][0] == 'O' or board.rows[1][0] == 'X':
+                return board.rows[1][0]
             else:
                 return None
-        elif self.rows[2][0] == self.rows[2][1] == self.rows[2][2]:
-            if self.rows[2][0] == 'O' or self.rows[2][0] == 'X':
-                return self.rows[2][0]
+        elif board.rows[2][0] == board.rows[2][1] == board.rows[2][2]:
+            if board.rows[2][0] == 'O' or board.rows[2][0] == 'X':
+                return board.rows[2][0]
             else:
                 return None
-        elif self.rows[0][0] == self.rows[1][0] == self.rows[2][0]:
-            if self.rows[0][0] == 'O' or self.rows[0][0] == 'X':
-                return self.rows[0][0]
+        elif board.rows[0][0] == board.rows[1][0] == board.rows[2][0]:
+            if board.rows[0][0] == 'O' or board.rows[0][0] == 'X':
+                return board.rows[0][0]
             else:
                 return None
-        elif self.rows[0][1] == self.rows[1][1] == self.rows[2][1]:
-            if self.rows[0][1] == 'O' or self.rows[0][1] == 'X':
-                return self.rows[0][1]
+        elif board.rows[0][1] == board.rows[1][1] == board.rows[2][1]:
+            if board.rows[0][1] == 'O' or board.rows[0][1] == 'X':
+                return board.rows[0][1]
             else:
                 return None
-        elif self.rows[0][2] == self.rows[1][2] == self.rows[2][2]:
-            if self.rows[0][2] == 'O' or self.rows[0][2] == 'X':
-                return self.rows[0][2]
+        elif board.rows[0][2] == board.rows[1][2] == board.rows[2][2]:
+            if board.rows[0][2] == 'O' or board.rows[0][2] == 'X':
+                return board.rows[0][2]
             else:
                 return None
-        elif self.rows[0][0] == self.rows[1][1] == self.rows[2][2]:
-            if self.rows[0][0] == 'O' or self.rows[0][0] == 'X':
-                return self.rows[0][0]
+        elif board.rows[0][0] == board.rows[1][1] == board.rows[2][2]:
+            if board.rows[0][0] == 'O' or board.rows[0][0] == 'X':
+                return board.rows[0][0]
             else:
                 return None
-        elif self.rows[0][2] == self.rows[1][1] == self.rows[2][0]:
-            if self.rows[0][2] == 'O' or self.rows[0][2] == 'X':
-                return self.rows[0][2]
+        elif board.rows[0][2] == board.rows[1][1] == board.rows[2][0]:
+            if board.rows[0][2] == 'O' or board.rows[0][2] == 'X':
+                return board.rows[0][2]
             else:
                 return None
         else:
-            return None
+            draw_counter = 0
+            for i in range(len(board.rows)):
+                for j in range(len(board.rows[i])):
+                    if board.get(i, j) != None:
+                        draw_counter += 1
+            if draw_counter == 9:
+                return 'Draw'
+        return None
 
 
-class Player:
+class Human:
 
     def __init__(self, name):
         self.name = name
 
-    def next_turn(self):
-        if self.name == 'O':
-            self.name = 'X'
-        else:
-            self.name = 'O'
+
+class Bot:
+
+    def __init__(self, name):
+        self.name = name
+
+    def get_random_position(self, board):
+        x, y = random.randint(0, 2), random.randint(0, 2)
+        while board.get(x, y) != None:
+            x, y = random.randint(0, 2), random.randint(0, 2)
+        return x, y
