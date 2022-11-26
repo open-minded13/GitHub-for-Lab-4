@@ -56,5 +56,7 @@ if __name__ == '__main__':
         if winner == None:
             current_player = other_player(current_player)
             print("\nNow, it is", current_player, "'s turn!")
+        elif winner == 'Draw':
+            print("\nThe game ended in a draw/tie.")
         else:
             print("\n" + winner, "just won the game.")

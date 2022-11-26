@@ -56,7 +56,14 @@ def get_winner(board):
         else:
             return None
     else:
-        return None  # FIXME
+        Draw_Counter = 0
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                if board[i][j] != None:
+                    Draw_Counter += 1
+        if Draw_Counter == 9:
+            return 'Draw'
+    return None  # FIXME
 
 
 def other_player(player):

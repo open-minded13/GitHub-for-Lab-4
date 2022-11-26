@@ -12,7 +12,13 @@ class TestLogic(unittest.TestCase):
         ]
         self.assertEqual(logic.get_winner(board), 'X')
 
-    # TODO: Test all functions from logic.py!
+    def test_get_winner(self):
+        board = [
+            ['X', 'O', 'O'],
+            ['O', 'X', 'X'],
+            ['X', 'O', 'O'],
+        ]
+        self.assertEqual(logic.get_winner(board), 'Draw')
 
 
 if __name__ == '__main__':
