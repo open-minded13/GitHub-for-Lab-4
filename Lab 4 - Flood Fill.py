@@ -35,7 +35,7 @@ def flood_fill(input_board: List[str], old: str, new: str, x: int, y: int) -> Li
         List[str]: Modified board
     """
 
-    if x >= 7 or x <= 0 or y >= 21 or y <= 0:
+    if x > len(board) or x <= 0 or y > len(board[x]) or y <= 0:
         return
     if Board[x][y] == '~':
         return
