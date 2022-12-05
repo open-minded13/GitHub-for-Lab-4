@@ -2,7 +2,41 @@
 # or output happens here. The logic in this file
 # should be unit-testable.
 import random
+import pandas as pd
 
+games_database_filename = "games_database.csv"
+def read_games_database():
+    try:
+        return pd.read_csv(games_database_filename)
+    except FileNotFoundError:
+        return pd.DataFrame(columns = [
+            "Game ID",
+            "Player 1",
+            "Player 2",
+            "Winner",
+        ])
+
+moves_database = pd.DataFrame(columns = [
+    "Game ID",
+    "Turn",
+    "Player",
+    "Position",
+])
+
+players_database = pd.DataFrame(columns = [
+    "Name",
+    "Type",
+])
+
+game_history_filename = "game_history.csv"
+game_history = pd.DataFrame(columns = [
+    "Game ID",
+    "Player 1",
+    "Player 2",
+    "Winner",
+    "Player 1 Type",
+    "Player 2 Type",   
+    ])
 
 class Board:
 
