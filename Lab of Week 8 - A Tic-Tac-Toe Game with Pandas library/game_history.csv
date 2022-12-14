@@ -1,0 +1,13 @@
+Game ID,Player 1,Player 2,Winner,Player 1 Type,Player 2 Type
+0,User,Robot,User,Human,Bot
+1,User 1,User 2,User 1,Human,Human
+2,User,Robot,User,Human,Bot
+3,User 1,User 2,User 1,Human,Human
+4,User 1,User 2,User 2,Human,Human
+5,User,Robot,Robot,Human,Bot
+6,User 1,User 2,User 2,Human,Human
+7,User,Robot,Robot,Human,Bot
+8,User,Robot,Draw,Human,Bot
+9,User,Robot,User,Human,Bot
+10,User,Robot,User,Human,Bot
+11,User,Robot,Robot,Human,Bot
