@@ -117,3 +117,26 @@ input, textarea {
 .popup.hide {
     display: none;
 }
+
+/* For stats.html */
+.table-wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+}
+.table {
+    width: 30vmin;
+    height: 70vmin;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vmin;
+    text-align: center; 
+    color: #ffffff;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
