@@ -11,6 +11,46 @@ body {
 html {
     font-size: 16px;
 }
+
+/* For index.html */
+form {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%; 
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+form li + li {
+    margin-top: 1.5em;
+}
+input, textarea {
+    margin-top: 0.8em;
+    /* To make sure that all text fields have the same font settings
+       By default, textareas have a monospace font */
+    padding: 0.3em 0.8em;
+    font: 1em sans-serif;
+    /* Uniform text field size */
+    width: 300px;
+    box-sizing: border-box;
+    /* Match form field borders */
+    border: 1px solid #d7d7d7;
+    border-radius: 0.2em;
+  }
+#start-game {
+    font-size: 1em;
+    margin-top: 3em;
+    padding: 1em;
+    background-color: #0a0027;
+    color: #ffffff;
+    border-radius: 0.2em;
+    border: none;
+}
+
+/* For play.html */
 .wrapper {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -23,6 +63,8 @@ html {
     display: flex;
     flex-wrap: wrap;
     gap: 2vmin;
+    text-align: center; 
+    color: #ffffff;
 }
 .button-option {
     background: #ffffff;

@@ -8,16 +8,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="/play.html" method="post"> <ul>
-        <li>
-            <label for="nickname">Player 1's Nickname:</label>
-            <input type="text" id="nickname" name="nickname1" />
-        </li>
-        <li>
-            <label for="nickname">Player 2's Nickname:</label>
-            <input type="text" id="nickname" name="nickname2" />
-          </li>
-      </ul>
-    </form>
+    <div class="wrapper">
+        <div class="container">
+            <form action="play.html" method="post"> 
+                <ul>
+                    <li>
+                        <label for="nickname">Player 1's Nickname</label>
+                        <input type="text" id="nickname" name="nickname1" />
+                    </li>
+                    <li>
+                        <label for="nickname">Player 2's Nickname</label>
+                        <input type="text" id="nickname" name="nickname2" />
+                    </li>
+                </ul>
+                <div class="start-game">
+                    <button id = start-game type="submit">Start the Game</start-game>
+                </div>
+            </form>
+        </div>
+    </div>        
 </body>
 </html>
